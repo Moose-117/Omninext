@@ -1,0 +1,42 @@
+service: my-flask-lambda
+
+provider:
+  name: aws
+  runtime: python3.12
+  region: eu-west-3
+
+functions:
+  app:
+    handler: app.lambda_handler
+    events:
+      - http:
+          path: /getUser/{userId}
+          method: get
+          cors:
+            origins:
+              - "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+      - http:
+          path: /addUser
+          method: post
+          cors:
+            origins:
+              - "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+
+plugins:
+  - serverless-python-requirements
