@@ -3,7 +3,7 @@ service: omninext
 provider:
   name: aws
   runtime: python3.12
-  region: eu-west-2
+  region: eu-west-3
 
 functions:
   app:
