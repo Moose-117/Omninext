@@ -1,5 +1,5 @@
 {
-  "C:\\Users\\LENOVO\\Desktop\\ProgettoReal": {
+  "C:\\Users\\LENOVO\\Desktop\\nuovoCommit\\src": {
     "versionSfCore": null,
     "versionFramework": "4.1.11",
     "isWithinCompose": false,
@@ -7,14 +7,14 @@
     "composeOrgName": null,
     "composeResolverProviders": {},
     "composeServiceName": null,
-    "servicePath": "C:\\Users\\LENOVO\\Desktop\\ProgettoReal",
+    "servicePath": "C:\\Users\\LENOVO\\Desktop\\nuovoCommit\\src",
     "serviceConfigFileName": "serverless.yaml",
     "service": {
-      "service": "my-flask-lambda",
+      "service": "omninext",
       "provider": {
         "name": "aws",
         "runtime": "python3.12",
-        "region": "eu-west-3",
+        "region": "eu-west-2",
         "stage": "dev",
         "versionFunctions": true,
         "compiledCloudFormationTemplate": {
@@ -93,7 +93,7 @@
             "AppLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/my-flask-lambda-dev-app"
+                "LogGroupName": "/aws/lambda/omninext-dev-app"
               }
             },
             "IamRoleLambdaExecution": {
@@ -121,7 +121,7 @@
                       "Fn::Join": [
                         "-",
                         [
-                          "my-flask-lambda",
+                          "omninext",
                           "dev",
                           "lambda"
                         ]
@@ -139,7 +139,7 @@
                           ],
                           "Resource": [
                             {
-                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-flask-lambda-dev*:*"
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/omninext-dev*:*"
                             }
                           ]
                         },
@@ -150,7 +150,7 @@
                           ],
                           "Resource": [
                             {
-                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-flask-lambda-dev*:*:*"
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/omninext-dev*:*:*"
                             }
                           ]
                         }
@@ -163,7 +163,7 @@
                   "Fn::Join": [
                     "-",
                     [
-                      "my-flask-lambda",
+                      "omninext",
                       "dev",
                       {
                         "Ref": "AWS::Region"
@@ -181,11 +181,11 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/my-flask-lambda/dev/1720198135199-2024-07-05T16:48:55.199Z/my-flask-lambda.zip"
+                  "S3Key": "serverless/omninext/dev/1720227606964-2024-07-06T01:00:06.964Z/omninext.zip"
                 },
                 "Handler": "app.lambda_handler",
                 "Runtime": "python3.12",
-                "FunctionName": "my-flask-lambda-dev-app",
+                "FunctionName": "omninext-dev-app",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Role": {
@@ -199,20 +199,20 @@
                 "AppLogGroup"
               ]
             },
-            "AppLambdaVersionAHwPoGWUmEJ5NxfYY61TAPzRc9IxYGEr8OrVwIGBM": {
+            "AppLambdaVersionG8WzEO2DtuAyfXvrmK22Cafn1kvulZzwATke3LuiY": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AppLambdaFunction"
                 },
-                "CodeSha256": "c9SAoMXmSoCM2wWti0bkv6tfruPNmM3kGe0iGP3EAj4="
+                "CodeSha256": "Jh07ouuUzEWsK12KLFqK9T5oR2YGrlHbFPG7HRFqtsg="
               }
             },
             "ApiGatewayRestApi": {
               "Type": "AWS::ApiGateway::RestApi",
               "Properties": {
-                "Name": "dev-my-flask-lambda",
+                "Name": "dev-omninext",
                 "EndpointConfiguration": {
                   "Types": [
                     "EDGE"
@@ -445,7 +445,7 @@
                 "AppLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1720198126073": {
+            "ApiGatewayDeployment1720227597745": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -504,16 +504,16 @@
                 "Ref": "ServerlessDeploymentBucket"
               },
               "Export": {
-                "Name": "sls-my-flask-lambda-dev-ServerlessDeploymentBucketName"
+                "Name": "sls-omninext-dev-ServerlessDeploymentBucketName"
               }
             },
             "AppLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AppLambdaVersionAHwPoGWUmEJ5NxfYY61TAPzRc9IxYGEr8OrVwIGBM"
+                "Ref": "AppLambdaVersionG8WzEO2DtuAyfXvrmK22Cafn1kvulZzwATke3LuiY"
               },
               "Export": {
-                "Name": "sls-my-flask-lambda-dev-AppLambdaFunctionQualifiedArn"
+                "Name": "sls-omninext-dev-AppLambdaFunctionQualifiedArn"
               }
             },
             "ServiceEndpoint": {
@@ -539,7 +539,7 @@
                 ]
               },
               "Export": {
-                "Name": "sls-my-flask-lambda-dev-ServiceEndpoint"
+                "Name": "sls-omninext-dev-ServiceEndpoint"
               }
             }
           }
@@ -683,20 +683,20 @@
               }
             }
           ],
-          "name": "my-flask-lambda-dev-app",
+          "name": "omninext-dev-app",
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "python3.12",
           "vpc": {},
-          "versionLogicalId": "AppLambdaVersionAHwPoGWUmEJ5NxfYY61TAPzRc9IxYGEr8OrVwIGBM"
+          "versionLogicalId": "AppLambdaVersionG8WzEO2DtuAyfXvrmK22Cafn1kvulZzwATke3LuiY"
         }
       },
       "plugins": [
         "serverless-python-requirements"
       ]
     },
-    "serviceRawFile": "service: my-flask-lambda\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.12\r\n  region: eu-west-3\r\n\r\nfunctions:\r\n  app:\r\n    handler: app.lambda_handler\r\n    events:\r\n      - http:\r\n          path: /getUser/{userId}\r\n          method: get\r\n          cors:\r\n            origins:\r\n              - \"*\"\r\n            headers:\r\n              - Content-Type\r\n              - X-Amz-Date\r\n              - Authorization\r\n              - X-Api-Key\r\n              - X-Amz-Security-Token\r\n              - X-Amz-User-Agent\r\n            allowCredentials: false\r\n      - http:\r\n          path: /addUser\r\n          method: post\r\n          cors:\r\n            origins:\r\n              - \"*\"\r\n            headers:\r\n              - Content-Type\r\n              - X-Amz-Date\r\n              - Authorization\r\n              - X-Api-Key\r\n              - X-Amz-Security-Token\r\n              - X-Amz-User-Agent\r\n            allowCredentials: false\r\n\r\nplugins:\r\n  - serverless-python-requirements",
+    "serviceRawFile": "service: omninext\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.12\r\n  region: eu-west-2\r\n\r\nfunctions:\r\n  app:\r\n    handler: app.lambda_handler\r\n    events:\r\n      - http:\r\n          path: /getUser/{userId}\r\n          method: get\r\n          cors:\r\n            origins:\r\n              - \"*\"\r\n            headers:\r\n              - Content-Type\r\n              - X-Amz-Date\r\n              - Authorization\r\n              - X-Api-Key\r\n              - X-Amz-Security-Token\r\n              - X-Amz-User-Agent\r\n            allowCredentials: false\r\n      - http:\r\n          path: /addUser\r\n          method: post\r\n          cors:\r\n            origins:\r\n              - \"*\"\r\n            headers:\r\n              - Content-Type\r\n              - X-Amz-Date\r\n              - Authorization\r\n              - X-Api-Key\r\n              - X-Amz-Security-Token\r\n              - X-Amz-User-Agent\r\n            allowCredentials: false\r\n\r\nplugins:\r\n  - serverless-python-requirements",
     "command": [
       "deploy"
     ],
@@ -724,28 +724,28 @@
     "serviceProviderAwsCredentials": "<REDACTED>",
     "serviceProviderAwsAccountId": "381491875460",
     "versionSf": "4.1.11",
-    "serviceProviderAwsCfStackName": "my-flask-lambda-dev",
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-west-3:381491875460:stack/my-flask-lambda-dev/e6a78230-3ad4-11ef-a797-0aad536b82cd",
-    "serviceProviderAwsCfStackCreated": "2024-07-05T13:45:54.964Z",
-    "serviceProviderAwsCfStackUpdated": "2024-07-05T16:49:15.157Z",
+    "serviceProviderAwsCfStackName": "omninext-dev",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-west-2:381491875460:stack/omninext-dev/2ec33e20-3b29-11ef-966f-02b4ae623511",
+    "serviceProviderAwsCfStackCreated": "2024-07-05T23:49:13.648Z",
+    "serviceProviderAwsCfStackUpdated": "2024-07-06T01:00:27.971Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "AppLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-3:381491875460:function:my-flask-lambda-dev-app:15",
+        "OutputValue": "arn:aws:lambda:eu-west-2:381491875460:function:omninext-dev-app:3",
         "Description": "Current Lambda function version",
-        "ExportName": "sls-my-flask-lambda-dev-AppLambdaFunctionQualifiedArn"
+        "ExportName": "sls-omninext-dev-AppLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ServiceEndpoint",
-        "OutputValue": "https://ec9efbkg8j.execute-api.eu-west-3.amazonaws.com/dev",
+        "OutputValue": "https://wfnn6jzsy0.execute-api.eu-west-2.amazonaws.com/dev",
         "Description": "URL of the service endpoint",
-        "ExportName": "sls-my-flask-lambda-dev-ServiceEndpoint"
+        "ExportName": "sls-omninext-dev-ServiceEndpoint"
       },
       {
         "OutputKey": "ServerlessDeploymentBucketName",
-        "OutputValue": "my-flask-lambda-dev-serverlessdeploymentbucket-lagep8sgblr0",
-        "ExportName": "sls-my-flask-lambda-dev-ServerlessDeploymentBucketName"
+        "OutputValue": "omninext-dev-serverlessdeploymentbucket-xhi7cf9sbx32",
+        "ExportName": "sls-omninext-dev-ServerlessDeploymentBucketName"
       }
     ]
   }

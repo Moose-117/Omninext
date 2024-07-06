@@ -74,7 +74,7 @@
     "AppLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/my-flask-lambda-dev-app"
+        "LogGroupName": "/aws/lambda/omninext-dev-app"
       }
     },
     "IamRoleLambdaExecution": {
@@ -102,7 +102,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "my-flask-lambda",
+                  "omninext",
                   "dev",
                   "lambda"
                 ]
@@ -120,7 +120,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-flask-lambda-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/omninext-dev*:*"
                     }
                   ]
                 },
@@ -131,7 +131,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-flask-lambda-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/omninext-dev*:*:*"
                     }
                   ]
                 }
@@ -144,7 +144,7 @@
           "Fn::Join": [
             "-",
             [
-              "my-flask-lambda",
+              "omninext",
               "dev",
               {
                 "Ref": "AWS::Region"
@@ -162,11 +162,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/my-flask-lambda/dev/1720198135199-2024-07-05T16:48:55.199Z/my-flask-lambda.zip"
+          "S3Key": "serverless/omninext/dev/1720227606964-2024-07-06T01:00:06.964Z/omninext.zip"
         },
         "Handler": "app.lambda_handler",
         "Runtime": "python3.12",
-        "FunctionName": "my-flask-lambda-dev-app",
+        "FunctionName": "omninext-dev-app",
         "MemorySize": 1024,
         "Timeout": 6,
         "Role": {
@@ -180,20 +180,20 @@
         "AppLogGroup"
       ]
     },
-    "AppLambdaVersionAHwPoGWUmEJ5NxfYY61TAPzRc9IxYGEr8OrVwIGBM": {
+    "AppLambdaVersionG8WzEO2DtuAyfXvrmK22Cafn1kvulZzwATke3LuiY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "c9SAoMXmSoCM2wWti0bkv6tfruPNmM3kGe0iGP3EAj4="
+        "CodeSha256": "Jh07ouuUzEWsK12KLFqK9T5oR2YGrlHbFPG7HRFqtsg="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-my-flask-lambda",
+        "Name": "dev-omninext",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -426,7 +426,7 @@
         "AppLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1720198126073": {
+    "ApiGatewayDeployment1720227597745": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -485,16 +485,16 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-my-flask-lambda-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-omninext-dev-ServerlessDeploymentBucketName"
       }
     },
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionAHwPoGWUmEJ5NxfYY61TAPzRc9IxYGEr8OrVwIGBM"
+        "Ref": "AppLambdaVersionG8WzEO2DtuAyfXvrmK22Cafn1kvulZzwATke3LuiY"
       },
       "Export": {
-        "Name": "sls-my-flask-lambda-dev-AppLambdaFunctionQualifiedArn"
+        "Name": "sls-omninext-dev-AppLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -520,7 +520,7 @@
         ]
       },
       "Export": {
-        "Name": "sls-my-flask-lambda-dev-ServiceEndpoint"
+        "Name": "sls-omninext-dev-ServiceEndpoint"
       }
     }
   }

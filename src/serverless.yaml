@@ -1,9 +1,9 @@
-service: my-flask-lambda
+service: omninext
 
 provider:
   name: aws
   runtime: python3.12
-  region: eu-west-3
+  region: eu-west-2
 
 functions:
   app:
